@@ -25,6 +25,9 @@ function isBalanced($s) {
             array_push($stack,$char);
         }
         else {
+            if(empty($stack)) {
+                return "NO";
+            }
             $last_bracket = array_pop($stack);
             switch($last_bracket) {
                 case "{":
@@ -46,7 +49,10 @@ function isBalanced($s) {
         }
     }
     
-    return "YES";
+    if(empty($stack)) {
+        return "YES";
+    }
+    return "NO";
     
 
 }
